@@ -1,5 +1,11 @@
 require: slotfilling/slotFilling.sc
   module = sys.zb-common
+  
+require: common.js
+    module = sys.zb-common
+    
+require: getNumber.js
+    
 theme: /
 
     state: Правила
@@ -21,8 +27,8 @@ theme: /
     state: Игра
         # сгенерируем случайное число и перейдем в стейт /Проверка
         script:
-            var bot_number = getRandomNumber();
-            $session.number = number
+            $session.number = getRandomNumber();
+            # $reactions.answer("Загадано {{$session.number}}");
             $reactions.transition("/Проверка");
             
     state: Проверка
@@ -30,16 +36,17 @@ theme: /
         script:
             # сохраняем введенное пользователем число
             var user_number = $parseTree._Number;
+            $session.win = {bulls:4, cows:0};
+            $session.check = getHint($session.number, user_number)
 
             # проверяем угадал ли пользователь загаданное число и выводим соответствующую реакцию
-            if (num == $session.number) {
-                $reactions.answer("Ты выиграл! Хочешь еще раз?");
+            if ($session.check == $session.win) {
+                $reactions.answer("Ты выиграл!");
                 $reactions.transition("/Правила/Согласен?");
             }
             else
-                if (num < $session.number)
-                    $reactions.answer(selectRandomArg(["Мое число больше!", "Бери выше", "Попробуй число больше"]));
-                else $reactions.answer(selectRandomArg(["Мое число меньше!", "Подсказка: число меньше", "Дам тебе еще одну попытку! Мое число меньше."]));
+                $reactions.answer("Твой результат, {{ $session.check }}");
+                
 
     state: NoMatch || noContext = true
         event!: noMatch

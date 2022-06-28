@@ -78,6 +78,12 @@
       "text" : "@duckling.number"
     } ],
     "patterns" : [ ],
+    "slots" : [ {
+      "name" : "Number",
+      "entity" : "duckling.number",
+      "required" : true,
+      "prompts" : [ ]
+    } ],
     "priority" : 0
   } ],
   "entities" : [ ],
