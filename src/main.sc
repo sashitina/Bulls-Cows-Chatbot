@@ -2,22 +2,48 @@ require: slotfilling/slotFilling.sc
   module = sys.zb-common
 theme: /
 
-    state: Start
+    state: Правила
         q!: $regex</start>
-        a: Начнём.
+        intent!: /Давай поиграем
+        a: Сыграем в "Быки и коровы". Загадаю 4-значное число с неповторяющимися цифрами, ты попытаешься отгадать. Каждая угаданная цифра - это "корова". Цифра, угаданная вплоть до позиции - "бык". Начнем? 
+        go!: /Правила/Согласен?
+        
+        state: Согласен?
+            
+            state: Да
+                intent: /Согласие
+                go!: /Игра
 
-    state: Hello
-        intent!: /привет
-        a: Привет привет
+            state: Нет
+                intent: /Несогласие
+                a: Жаль! Если передумаешь - скажи "давай поиграем".
+                
+    state: Игра
+        # сгенерируем случайное число и перейдем в стейт /Проверка
+        script:
+            $session.number = $jsapi.random(10);
+            # $reactions.answer("Загадано {{$session.number}}");
+            $reactions.transition("/Проверка");
+            
+    state: Проверка
+        intent: /Число
+        script:
+            # сохраняем введенное пользователем число
+            var num = $parseTree._Number;
 
-    state: Bye
-        intent!: /пока
-        a: Пока пока
+            # проверяем угадал ли пользователь загаданное число и выводим соответствующую реакцию
+            if (num == $session.number) {
+                $reactions.answer("Ты выиграл! Хочешь еще раз?");
+                $reactions.transition("/Правила/Согласен?");
+            }
+            else
+                if (num < $session.number)
+                    $reactions.answer(selectRandomArg(["Мое число больше!", "Бери выше", "Попробуй число больше"]));
+                else $reactions.answer(selectRandomArg(["Мое число меньше!", "Подсказка: число меньше", "Дам тебе еще одну попытку! Мое число меньше."]));
 
-    state: NoMatch
+    state: NoMatch || noContext = true
         event!: noMatch
-        a: Я не понял. Вы сказали: {{$request.query}}
-
-    state: Match
-        event!: match
-        a: {{$context.intent.answer}}
+        random:
+            a: Я не понял.
+            a: Что вы имеете в виду?
+            a: Ничего не пойму
