@@ -21,15 +21,15 @@ theme: /
     state: Игра
         # сгенерируем случайное число и перейдем в стейт /Проверка
         script:
-            $session.number = $jsapi.random(10);
-            # $reactions.answer("Загадано {{$session.number}}");
+            var bot_number = getRandomNumber();
+            $session.number = number
             $reactions.transition("/Проверка");
             
     state: Проверка
         intent: /Число
         script:
             # сохраняем введенное пользователем число
-            var num = $parseTree._Number;
+            var user_number = $parseTree._Number;
 
             # проверяем угадал ли пользователь загаданное число и выводим соответствующую реакцию
             if (num == $session.number) {
@@ -45,5 +45,5 @@ theme: /
         event!: noMatch
         random:
             a: Я не понял.
-            a: Что вы имеете в виду?
+            a: Что ты имеешь ввиду?
             a: Ничего не пойму
