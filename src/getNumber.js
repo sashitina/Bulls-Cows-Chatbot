@@ -11,17 +11,21 @@ function getHint(secret, guess) {
   var map = {};
   var A = 0;
   var B = 0;
+  
+  var secret2 = secret.toString();
+  var guess2 = guess.toString();
+  
   for (var i = 0; i < 10; i++) map[i] = 0;
-  for (i = 0; i < secret.length; i++) {
-    if (secret[i] === guess[i]) A++;
+  for (i = 0; i < secret2.length; i++) {
+    if (secret2[i] === guess2[i]) A++;
     else {
-      map[secret[i]]++;
-      B += map[secret[i]] <= 0 ? 1 : 0;
-      map[guess[i]]--;
-      B += map[guess[i]] >= 0 ? 1 : 0;
+      map[secret2[i]]++;
+      B += map[secret2[i]] <= 0 ? 1 : 0;
+      map[guess2[i]]--;
+      B += map[guess2[i]] >= 0 ? 1 : 0;
     }
   }
-  return 'Быков:' + A + ', коров:' + B;
+  return 'Быков: ' + A + ', коров: ' + B;
 }
 
 function showScore(nBulls, nCows) {
