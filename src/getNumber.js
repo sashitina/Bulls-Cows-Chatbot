@@ -27,11 +27,3 @@ function getHint(secret, guess) {
   }
   return 'Быков: ' + A + ', коров: ' + B;
 }
-
-function showScore(nBulls, nCows) {
-    print('Bulls:' + nBulls + ', cows:' + nCows);
-}
-
-function showFinalResult() {
-    print("Ты выиграл!");
-}
