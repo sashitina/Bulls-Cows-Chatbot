@@ -35,9 +35,9 @@ theme: /
         intent: /Число
         script:
             # сохраняем введенное пользователем число
-            var user_number = $parseTree._Number;
+            $session.user_number = $parseTree._Number;
             $session.win = ("Быков: 4, коров: 0");
-            $session.check = getHint($session.number, user_number)
+            $session.check = getHint($session.number, $session.user_number)
 
             # проверяем угадал ли пользователь загаданное число и выводим соответствующую реакцию
             if ($session.check == $session.win) {
