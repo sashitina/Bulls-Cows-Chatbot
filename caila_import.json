@@ -16,7 +16,7 @@
     "shared" : false
   },
   "intents" : [ {
-    "id" : 10912005,
+    "id" : 10914762,
     "path" : "/Давай поиграем",
     "enabled" : true,
     "shared" : false,
@@ -34,7 +34,7 @@
     "patterns" : [ ],
     "priority" : 0
   }, {
-    "id" : 10912006,
+    "id" : 10914763,
     "path" : "/Несогласие",
     "enabled" : true,
     "shared" : false,
@@ -48,7 +48,7 @@
     "patterns" : [ ],
     "priority" : 0
   }, {
-    "id" : 10912007,
+    "id" : 10914764,
     "path" : "/Согласие",
     "enabled" : true,
     "shared" : false,
@@ -71,7 +71,7 @@
     } ],
     "priority" : 0
   }, {
-    "id" : 10912008,
+    "id" : 10914765,
     "path" : "/Число",
     "enabled" : true,
     "shared" : false,
