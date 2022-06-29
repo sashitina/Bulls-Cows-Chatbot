@@ -1,30 +1,27 @@
-function getRandomNumber() {
-
-  var arr = []
-  for (var i = 1; i < 10; i++) {
-    arr.push(i)
-  }
-
-  var result = [];
-
-  for (var i = 1; i == 4; i++) {
-    var random = Math.floor(Math.random() * (range - i));
-    result.push(arr[random]);
-    arr[random] = arr[range - i];
-  }
-
-  return result;
+function getRandomNumber(){
+  return shuffle( "0123456789".split('') ).join('').substring(0,4);
 }
 
-function getHint(secret, guess){
-    var count = {bulls:0, cows:0};
-    var number = guess;
-     for (var i = 0; i < secret.length; i++) {
-    var digPresent = number.search(secret[i]) != -1;
-        if (secret[i] == guess[i]) count.bulls++;
-        else if (digPresent) count.cows++;
+function shuffle(o){
+    for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+    return o;
+}
+
+function getHint(secret, guess) {
+  var map = {};
+  var A = 0;
+  var B = 0;
+  for (var i = 0; i < 10; i++) map[i] = 0;
+  for (i = 0; i < secret.length; i++) {
+    if (secret[i] === guess[i]) A++;
+    else {
+      map[secret[i]]++;
+      B += map[secret[i]] <= 0 ? 1 : 0;
+      map[guess[i]]--;
+      B += map[guess[i]] >= 0 ? 1 : 0;
     }
-    return count;
+  }
+  return 'Быков:' + A + ', коров:' + B;
 }
 
 function showScore(nBulls, nCows) {

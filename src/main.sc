@@ -45,7 +45,7 @@ theme: /
                 $reactions.transition("/Правила/Согласен?");
             }
             else
-                $reactions.answer("Твой результат, {{ $session.check }}");
+                $reactions.answer("Твой результат: {{ $session.check }}");
                 
 
     state: NoMatch || noContext = true
