@@ -7,7 +7,7 @@ function shuffle(o){
     return o;
 }
 
-function getHint(secret, guess) {
+function getHint(secret, guess){
   var map = {};
   var A = 0;
   var B = 0;
