@@ -16,43 +16,6 @@
     "shared" : false
   },
   "intents" : [ {
-    "id" : 10914763,
-    "path" : "/Несогласие",
-    "enabled" : true,
-    "shared" : false,
-    "phrases" : [ {
-      "text" : "не буду"
-    }, {
-      "text" : "нет"
-    }, {
-      "text" : "не хочу"
-    } ],
-    "patterns" : [ ],
-    "priority" : 0
-  }, {
-    "id" : 10914764,
-    "path" : "/Согласие",
-    "enabled" : true,
-    "shared" : false,
-    "phrases" : [ {
-      "text" : "да"
-    }, {
-      "text" : "согласен"
-    }, {
-      "text" : "играем"
-    }, {
-      "text" : "начнем"
-    } ],
-    "patterns" : [ ],
-    "slots" : [ {
-      "name" : "Number",
-      "entity" : "duckling.number",
-      "required" : true,
-      "prompts" : [ "Я загадал число. Твоя догадка?" ],
-      "array" : false
-    } ],
-    "priority" : 0
-  }, {
     "id" : 10914765,
     "path" : "/Число",
     "enabled" : true,
@@ -68,6 +31,49 @@
       "prompts" : [ ],
       "array" : false
     } ],
+    "priority" : 0
+  }, {
+    "id" : 10914764,
+    "path" : "/Согласие",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "да"
+    }, {
+      "text" : "согласен"
+    }, {
+      "text" : "играем"
+    }, {
+      "text" : "начнем"
+    }, {
+      "text" : "Играем!"
+    } ],
+    "patterns" : [ ],
+    "slots" : [ {
+      "name" : "Number",
+      "entity" : "duckling.number",
+      "required" : true,
+      "prompts" : [ "Я загадал число. Твоя догадка?" ],
+      "array" : false
+    } ],
+    "priority" : 0
+  }, {
+    "id" : 10914763,
+    "path" : "/Несогласие",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "не буду"
+    }, {
+      "text" : "нет"
+    }, {
+      "text" : "не хочу"
+    }, {
+      "text" : "Не сегодня"
+    }, {
+      "text" : "потом"
+    } ],
+    "patterns" : [ ],
     "priority" : 0
   }, {
     "id" : 10914762,
