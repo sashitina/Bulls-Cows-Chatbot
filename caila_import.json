@@ -16,24 +16,6 @@
     "shared" : false
   },
   "intents" : [ {
-    "id" : 10914762,
-    "path" : "/Давай поиграем",
-    "enabled" : true,
-    "shared" : false,
-    "phrases" : [ {
-      "text" : "давай поиграем"
-    }, {
-      "text" : "играть"
-    }, {
-      "text" : "игра"
-    }, {
-      "text" : "хочу играть"
-    }, {
-      "text" : "сыграем"
-    } ],
-    "patterns" : [ ],
-    "priority" : 0
-  }, {
     "id" : 10914763,
     "path" : "/Несогласие",
     "enabled" : true,
@@ -86,6 +68,26 @@
       "prompts" : [ ],
       "array" : false
     } ],
+    "priority" : 0
+  }, {
+    "id" : 10914762,
+    "path" : "/Давай поиграем",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "давай поиграем"
+    }, {
+      "text" : "играть"
+    }, {
+      "text" : "игра"
+    }, {
+      "text" : "хочу играть"
+    }, {
+      "text" : "сыграем"
+    }, {
+      "text" : "правила"
+    } ],
+    "patterns" : [ ],
     "priority" : 0
   } ],
   "entities" : [ ],
