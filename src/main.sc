@@ -30,7 +30,7 @@ theme: /
         # сгенерируем случайное число и перейдем в стейт /Проверка
         script:
             $session.number = getRandomNumber();
-            # $reactions.answer("Загадано {{$session.number}}");
+            $reactions.answer("Загадано {{$session.number}}");
             $reactions.transition("/Проверка");
             
     state: Проверка
@@ -38,7 +38,7 @@ theme: /
         script:
             # сохраняем введенное пользователем число
             $session.user_number = $parseTree._Number;
-            $session.win = ("Быков: 4, коров: 0");
+            $session.win = (4, 0);
             $session.check = getHint($session.number, $session.user_number)
 
             # проверяем, угадал ли пользователь загаданное число и выводим соответствующую реакцию

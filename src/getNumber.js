@@ -25,5 +25,5 @@ function getHint(secret, guess){
       B += map[guess2[i]] >= 0 ? 1 : 0;
     }
   }
-  return 'Быков: ' + A + ', коров: ' + B;
+  return A, B;
 }
