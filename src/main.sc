@@ -41,6 +41,7 @@ theme: /
             
             if ($session.user_number > $session.number) {
                 $reactions.answer("Введи четырехзначное число.");
+                $reactions.transition("/Проверка");
             }
                 
             $session.win = ("4 быка, 0 коров");
