@@ -36,5 +36,9 @@ function getHint(secret, guess){
   else if (B == 1) cows = 'корова';
   else cows = 'коровы'
   
+  if (guess2.length != 4) {
+  print('Введи 4-значное число.');
+  continue;
+            
   return A + ' ' + bulls + ', ' + B + ' ' + cows;
 }

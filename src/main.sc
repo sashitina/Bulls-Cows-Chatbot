@@ -47,10 +47,7 @@ theme: /
                 $reactions.answer("Ты выиграл! Сыграем еще?");
                 $reactions.transition("/Правила/Согласен?");
             }
-            else
-                if ($session.user_number.length > $session.number.length)
-                    $reactions.answer("Введи четырехзначное число.");
-                else $reactions.answer("{{ $session.check }}");
+            else $reactions.answer("{{ $session.check }}");
                 
 
     state: NoMatch || noContext = true
