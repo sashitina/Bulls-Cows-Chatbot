@@ -43,6 +43,10 @@ function getHint(secret, guess){
     if (hasDups(guess)) {
         return 'Цифры не должны повторяться.';
     } 
+    
+    if (guess2 === parseInt('0000', 8) {
+        return 'Ты ввел нули. Введи 4-значное число.';
+    }   
   
     return A + ' ' + bulls + ', ' + B + ' ' + cows;
 }
