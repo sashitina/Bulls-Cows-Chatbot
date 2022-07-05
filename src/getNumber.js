@@ -11,6 +11,8 @@ function getHint(secret, guess){
   var map = {};
   var A = 0;
   var B = 0;
+  var bulls = []
+  var cows = []
   
   var secret2 = secret.toString();
   var guess2 = guess.toString();
@@ -25,5 +27,14 @@ function getHint(secret, guess){
       B += map[guess2[i]] >= 0 ? 1 : 0;
     }
   }
-  return A, B;
+  
+  if (A == 0) bulls == 'быков';
+  else if (A == 1) bulls == 'бык';
+  else bulls == 'быка'
+  
+  if (B == 0) cows == 'коров';
+  else if (B == 1) cows == 'корова';
+  else cows == 'коровы'
+  
+  return A + bulls + ', ' + B + cows;
 }
