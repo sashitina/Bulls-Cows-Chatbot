@@ -40,5 +40,19 @@ function getHint(secret, guess){
       return 'Введи 4-значное число.';
   }   
   
+  if (hasDups(guess)) {
+      return 'Цифры не должны повторяться';
+  } 
+  
   return A + ' ' + bulls + ', ' + B + ' ' + cows;
+}
+
+function hasDups(number) {
+    var number2 = number.toString();
+    var number3 = number2.split('');
+    var t = number3.concat().sort();
+    for (var i = 1; i < t.length; i++) {
+        if (t[i] == t[i-1]) return true;
+    }
+    return false;
 }
