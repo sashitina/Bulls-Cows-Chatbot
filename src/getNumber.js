@@ -36,5 +36,5 @@ function getHint(secret, guess){
   else if (B == 1) cows = 'корова';
   else cows = 'коровы'
   
-  return A + bulls + ', ' + B + cows;
+  return A + ' ' + bulls + ', ' + B + ' ' + cows;
 }
