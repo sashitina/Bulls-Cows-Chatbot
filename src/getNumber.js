@@ -41,7 +41,7 @@ function getHint(secret, guess){
   }   
   
   if (hasDups(guess)) {
-      return 'Цифры не должны повторяться';
+      return 'Цифры не должны повторяться.';
   } 
   
   return A + ' ' + bulls + ', ' + B + ' ' + cows;
