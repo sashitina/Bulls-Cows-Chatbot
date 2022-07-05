@@ -39,8 +39,9 @@ theme: /
             # сохраняем введенное пользователем число
             $session.user_number = $parseTree._Number;
             
-            if $session.user_number > $session.number
-                $reactions.answer("Введи четырехзначное число.")
+            if ($session.user_number > $session.number) {
+                $reactions.answer("Введи четырехзначное число.");
+            }
                 
             $session.win = ("4 быка, 0 коров");
             $session.check = getHint($session.number, $session.user_number)
