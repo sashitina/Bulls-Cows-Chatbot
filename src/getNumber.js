@@ -28,12 +28,12 @@ function getHint(secret, guess){
     }
   }
   
-  if (A == 0) bulls == 'быков';
-  else if (A == 1) bulls == 'бык';
+  if (A == 0) bulls = 'быков';
+  else if (A == 1) bulls = 'бык';
   else bulls = 'быка'
   
-  if (B == 0) cows == 'коров';
-  else if (B == 1) cows == 'корова';
+  if (B == 0) cows = 'коров';
+  else if (B == 1) cows = 'корова';
   else cows = 'коровы'
   
   return A + bulls + ', ' + B + cows;
