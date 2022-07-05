@@ -39,11 +39,6 @@ theme: /
             # сохраняем введенное пользователем число
             $session.user_number = $parseTree._Number;
             
-            if ($session.user_number.length > $session.number.length) {
-                $reactions.answer("Введи четырехзначное число.");
-                $reactions.transition("/Проверка");
-            }
-                
             $session.win = ("4 быка, 0 коров");
             $session.check = getHint($session.number, $session.user_number)
 
@@ -51,6 +46,10 @@ theme: /
             if ($session.check == $session.win) {
                 $reactions.answer("Ты выиграл! Сыграем еще?");
                 $reactions.transition("/Правила/Согласен?");
+            }
+            else if ($session.user_number.length > $session.number.length) {
+                     $reactions.answer("Введи четырехзначное число.");
+                     $reactions.transition("/Проверка");
             }
             else
                 $reactions.answer("{{ $session.check }}");
