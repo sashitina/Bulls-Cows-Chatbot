@@ -39,7 +39,7 @@ theme: /
             # сохраняем введенное пользователем число
             $session.user_number = $parseTree._Number;
             
-            if (len($session.user_number) > len($session.number)) {
+            if ($session.user_number.length > $session.number.length) {
                 $reactions.answer("Введи четырехзначное число.");
                 $reactions.transition("/Проверка");
             }
