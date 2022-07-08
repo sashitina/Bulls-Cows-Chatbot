@@ -1,0 +1,10 @@
+<test>
+    
+    <test-case id="1">
+        <q>/start</q>
+        <a state = "/Правила"/>
+        <q>как дела?</q>
+        <a state = "/NoMatch"/>
+    </test-case>
+    
+</test>
