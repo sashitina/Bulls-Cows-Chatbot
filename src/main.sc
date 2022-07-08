@@ -34,20 +34,28 @@ theme: /
             
     state: Проверка
         intent: /Число
-        script:
-            # сохраняем введенное пользователем число
-            $session.user_number = $parseTree._Number;
+        
+        if: $parseTree._Number > -1 & $parseTree._Number < 1
             
-            $session.win = ("4 быка, 0 коров");
-            $session.check = getHint($session.number, $session.user_number)
-
-            # проверяем, угадал ли пользователь загаданное число и выводим соответствующую реакцию
-            if ($session.check == $session.win) {
-                $reactions.answer("Ты выиграл! Сыграем еще?");
-                $reactions.transition("/Правила/Согласен?");
-            }
-            else $reactions.answer("{{ $session.check }}");
+            script:
+                $reactions.answer("Ты ввел нули. Введи 4-значное число.");
                 
+        else:
+            
+            script:
+                # сохраняем введенное пользователем число
+                $session.user_number = $parseTree._Number;
+              
+                $session.win = ("4 быка, 0 коров");
+                $session.check = getHint($session.number, $session.user_number)
+
+                # проверяем, угадал ли пользователь загаданное число и выводим соответствующую реакцию
+                if ($session.check == $session.win) {
+                    $reactions.answer("Ты выиграл! Сыграем еще?");
+                    $reactions.transition("/Правила/Согласен?");
+                }
+                else $reactions.answer("{{ $session.check }}");
+        
 
     state: NoMatch || noContext = true
         event!: noMatch

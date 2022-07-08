@@ -1,10 +1,24 @@
 <test>
     
-    <test-case id="1">
+    <test-case id="No Match">
         <q>/start</q>
         <a state = "/Правила"/>
         <q>как дела?</q>
         <a state = "/NoMatch"/>
+    </test-case>
+    
+    <test-case id="Нет">
+        <q>/start</q>
+        <a state = "/Правила"/>
+        <q>не хочу</q>
+        <a state = "/Правила/Согласен?/Нет"/>
+    </test-case>
+    
+    <test-case id="Да">
+        <q>/start</q>
+        <a state = "/Правила"/>
+        <q>да</q>
+        <a state = "/Правила/Согласен?/Да./Игра"/>
     </test-case>
     
 </test>

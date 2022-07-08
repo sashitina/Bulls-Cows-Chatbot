@@ -1,5 +1,9 @@
 function getRandomNumber(){
-    return shuffle( "0123456789".split('') ).join('').substring(0,4);
+    var number = shuffle( "0123456789".split('') ).join('').substring(0,4);
+    if (number[0] < 1) {
+       return shuffle( "0123456789".split('') ).join('').substring(0,4);
+    }   
+    return number
 }
 
 function shuffle(o){
@@ -35,7 +39,11 @@ function getHint(secret, guess){
     if (B == 0) cows = 'коров';
     else if (B == 1) cows = 'корова';
     else cows = 'коровы'
-  
+    
+    if (guess2[0] == 0) {
+    return 'Число не должно начинаться с нуля. Придумай другое.';
+    } 
+    
     if (guess2.length != 4) {
         return 'Введи 4-значное число.';
     }   
