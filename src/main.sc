@@ -34,7 +34,7 @@ theme: /
             
     state: Проверка
         intent: /Число
-        
+        # проверка на все нули
         if: $parseTree._Number > -1 & $parseTree._Number < 1
             
             script:
