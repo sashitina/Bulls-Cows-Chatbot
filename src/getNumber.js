@@ -40,10 +40,6 @@ function getHint(secret, guess){
     else if (B == 1) cows = 'корова';
     else cows = 'коровы'
     
-    if (guess2[0] == 0) {
-    return 'Число не должно начинаться с нуля. Придумай другое.';
-    } 
-    
     if (guess2.length != 4) {
         return 'Введи 4-значное число.';
     }   
