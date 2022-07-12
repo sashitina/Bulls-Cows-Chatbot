@@ -14,4 +14,18 @@
         <a state = "/Правила/Согласен?/Нет"/>
     </test-case>
 
+    <test-case id="Да">
+        <q>/start</q>
+        <a state = "/Правила"/>
+        <q>да</q>
+        <context var="session">
+          {
+            "number": "8765"
+          }
+        </context>
+        <a>Я загадал число. Твоя догадка?</a>
+        <q>8765</q>
+        <a>Ты выиграл! Сыграем еще?</a>
+    </test-case>
+    
 </test>

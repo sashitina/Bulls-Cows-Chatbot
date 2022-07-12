@@ -29,7 +29,7 @@ theme: /
         # сгенерируем случайное число и перейдем в стейт /Проверка
         script:
             $session.number = getRandomNumber();
-            # $reactions.answer("Загадано {{$session.number}}");
+            $reactions.answer("Загадано {{$session.number}}");
             $reactions.transition("/Проверка");
             
     state: Проверка
